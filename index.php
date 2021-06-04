@@ -122,7 +122,7 @@ $products_table = [
                     <img src="<?=$value[2];?>" width="350" height="260" alt="<?=$key;?>">
                 </div>
                 <div class="lot__info">
-                    <span class="lot__category">"<?=$value[0];?>"</span>
+                    <span class="lot__category"><?=$value[0];?></span>
                     <h3 class="lot__title"><a class="text-link" href="lot.html"><?=$key;?></a></h3>
                     <div class="lot__state">
                         <div class="lot__rate">
