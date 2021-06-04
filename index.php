@@ -3,6 +3,18 @@ $is_auth = (bool) rand(0, 1);
 
 $user_name = 'Константин';
 $user_avatar = 'img/user.jpg';
+
+$products = ["доски и лыжи", "крепления", "ботинки", "одежда", "инструменты", "разное"];
+$products_table = [
+    "2014 Rossignol District Snowboard" => ["доски и лыжи", 10999, "img/lot-1.jpg"],
+    "DC Ply 2016/2017 Snowboard" => ["доски и лыжи", 159999, "img/lot-2.jpg"],
+    "Крепления Union Contact Pro 2015 года размер L/XL" => ["крепления", 8000, "img/lot-3.jpg"],
+    "Ботинки для сноуборда DC Munity Charocal" => ["ботинки", 10999, "img/lot-4.jpg"],
+    "Куртка для сноуборда DC Munity Charocal" => ["одежда", 75000, "img/lot-5.jpg"],
+    "Маска Oakley Canopy" => ["разное", 5400, "img/lot-6.jpg"]
+];
+
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -82,7 +94,7 @@ $user_avatar = 'img/user.jpg';
         <div class="lots__header">
             <h2>Открытые лоты</h2>
         </div>
-        <ul class="lots__list">
+        <!-- <ul class="lots__list">
             <li class="lots__item lot">
                 <div class="lot__image">
                     <img src="img/lot-1.jpg" width="350" height="260" alt="Сноуборд">
@@ -101,32 +113,44 @@ $user_avatar = 'img/user.jpg';
                     </div>
                 </div>
             </li>
+        </ul> -->
+
+        <ul class="lots__list">
+        <?php foreach ($products_table as $key => $value): ?>
+            <li class="lots__item lot">
+                <div class="lot__image">
+                    <img src="<?=$value[2];?>" width="350" height="260" alt="<?=$key;?>">
+                </div>
+                <div class="lot__info">
+                    <span class="lot__category">"<?=$value[0];?>"</span>
+                    <h3 class="lot__title"><a class="text-link" href="lot.html"><?=$key;?></a></h3>
+                    <div class="lot__state">
+                        <div class="lot__rate">
+                            <span class="lot__amount">Стартовая цена</span>
+                            <span class="lot__cost"><?=$value[1];?><b class="rub">р</b></span>
+                        </div>
+                        <div class="lot__timer timer">
+
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <?php endforeach; ?>
         </ul>
     </section>
 </main>
 
 <footer class="main-footer">
     <nav class="nav">
+
         <ul class="nav__list container">
+            <?php foreach ($products as $prod): ?>
             <li class="nav__item">
-                <a href="all-lots.html">Доски и лыжи</a>
+                <a href="all-lots.html"><?=$prod;?></a>
             </li>
-            <li class="nav__item">
-                <a href="all-lots.html">Крепления</a>
-            </li>
-            <li class="nav__item">
-                <a href="all-lots.html">Ботинки</a>
-            </li>
-            <li class="nav__item">
-                <a href="all-lots.html">Одежда</a>
-            </li>
-            <li class="nav__item">
-                <a href="all-lots.html">Инструменты</a>
-            </li>
-            <li class="nav__item">
-                <a href="all-lots.html">Разное</a>
-            </li>
+            <?php endforeach; ?>
         </ul>
+
     </nav>
     <div class="main-footer__bottom container">
         <div class="main-footer__copyright">
