@@ -28,6 +28,25 @@ $user_avatar = 'img/user.jpg';
 
         <nav class="user-menu">
 
+        <?php if ($is_auth): ?>
+        <div class="user-menu__image">
+            <img src="<?=$user_avatar; ?>" width="40" height="40" all="user">
+        </div>
+        <div class="user-menu__logged">
+            <p><?=$user_name; ?></p>
+        </div>
+        <?php else: ?>
+        <ul class="user-menu__list">
+            <li class="user-menu__item">
+                <a href="#">Registration</a>
+            </li>
+            <li class="user-menu__item">
+                <a href="#">Login</a>
+            </li>
+        </ul>
+        <?php endif; ?>
+
+
         <!-- здесь должен быть PHP код для показа аватара пользователя -->
 
         </nav>
